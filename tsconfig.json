@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "outDir": "cjs",
+    "baseUrl": "src",
+    "rootDir": "src",
+    "paths": {
+      "*": [
+        "node_modules/*",
+        "src/types/*"
+      ]
+    },
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "es6",
+      "scripthost",
+      "es2017.object"
+    ],
+    "sourceMap": false,
+    "declaration": true,
+    "importHelpers": true,
+    "skipLibCheck": true,
+    "allowJs": false,
+    "removeComments": true,
+    "noImplicitAny": true,
+    "noImplicitUseStrict": true,
+    "noUnusedLocals": false,
+    "forceConsistentCasingInFileNames": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "strictNullChecks": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "src/**/*",
+    "*.ts",
+    "*.tsx"
+  ]
+}

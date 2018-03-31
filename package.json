@@ -1,0 +1,52 @@
+{
+  "name": "@bristolinfotech/dotenv-tiered",
+  "description": "dotenv-tiered",
+  "version": "0.0.1",
+  "authors": [
+    "Carl Craig <carl@bristolinfotech.com>",
+    "Loki Wijnen <loki@bristolinfotech.com>"
+  ],
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "dotenv-expand": "^4.2.0",
+    "fs-extra": "^5.0.0",
+    "in-publish": "^2.0.0",
+    "tslib": "^1.8.0"
+  },
+  "devDependencies": {
+    "@bristolinfotech/tslint-rules": "^1.0.0",
+    "@types/fs-extra": "^5.0.1",
+    "concurrently": "^3.5.0",
+    "rimraf": "^2.6.2",
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.3",
+    "watch-cli": "^0.2.2"
+  },
+  "files": [
+    "esm",
+    "cjs",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bristolinfotech/dotenv-tiered.git"
+  },
+  "scripts": {
+    "build": "yarn lint && yarn build:cjs && yarn build:esm",
+    "build:cjs": "rimraf cjs && tsc --outDir cjs",
+    "build:esm": "rimraf esm && tsc --outDir esm --target es6 --module esnext",
+    "lint": "tslint -t stylish -c tslint.json -p tsconfig.json 'src/**/*.ts' 'src/**/*.tsx'",
+    "prepare": "in-publish && yarn build || not-in-publish",
+    "start": "concurrently --kill-others --names \"tsc,tslint\" -c \"bold.blue,magenta.bold\" \"yarn watch:typescript\" \"yarn watch:lint\"",
+    "watch:lint": "watch -p \"src/**/*.ts\" -p \"src/**/*.tsx\" -c \"yarn lint\"",
+    "watch:typescript": "tsc --watch --outDir esm --target es6 --module esnext"
+  },
+  "sideEffects": false,
+  "types": "esm/index.d.ts"
+}
