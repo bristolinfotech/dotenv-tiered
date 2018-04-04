@@ -49,10 +49,7 @@ To load `.env` without configuration, add the following as early as possible:
 
 ```js
 // for es modules
-import '@bristolinfotech/dotenv-tiered/esm/load';
-
-// for commonjs
-require('@bristolinfotech/dotenv-tiered/cjs/load');
+import '@bristolinfotech/dotenv-tiered/lib/load';
 ```
 
 Example programmatic usage:
